@@ -1,0 +1,226 @@
+{
+  "nodes": [
+    {
+      "id": "7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": -230.9283190229295,
+        "y": 13.290838504916806
+      },
+      "data": {
+        "label": "Start",
+        "body": "<p>Let's get this show on the road. Here are your choices:</p>",
+        "components": [
+          "f5a75c48-2a99-41f4-89de-368f49ac6bed"
+        ],
+        "isStartingNode": true
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "1a11f905-3879-402c-9a32-05ac88d094dc",
+      "type": "text-field",
+      "initialized": false,
+      "position": {
+        "x": 600,
+        "y": 0
+      },
+      "data": {
+        "label": "Jumper"
+      },
+      "style": {
+        "width": "220px",
+        "height": "50px"
+      },
+      "class": ""
+    },
+    {
+      "id": "ec06743f-ddf2-4c54-9c78-e4abc8a39404",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 1293.8970120078982,
+        "y": -35.25400218325422
+      },
+      "data": {
+        "label": "Node 3",
+        "body": "<p>This is the end!</p>"
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "9ccd8c79-9639-4ef5-8cd9-21f432b04b6d",
+      "type": "note",
+      "initialized": false,
+      "position": {
+        "x": 726.1387900355871,
+        "y": 561.9181494661922
+      },
+      "data": {
+        "label": "Welcome to Corkboard!",
+        "body": "<p><strong><em>Getting Started:</em></strong></p><ol><li>Right click the background to bring up the context menu</li><li>Double click nodes to delete and modify them</li><li>Drag attribute nodes over text area nodes to combine them</li><li>Save &amp; load projects using the toolbar in the upper-left</li></ol>"
+      },
+      "style": {
+        "width": "431px",
+        "height": "250px"
+      },
+      "class": ""
+    },
+    {
+      "id": "f5a75c48-2a99-41f4-89de-368f49ac6bed",
+      "type": "component",
+      "initialized": false,
+      "position": {
+        "x": -34.096991012747424,
+        "y": 731.27091426743
+      },
+      "data": {
+        "label": "Conelle",
+        "attributes": [
+          "content/portraits/conelle/Portrait_Connelle.png",
+          "Portrait"
+        ]
+      },
+      "class": ""
+    },
+    {
+      "id": "bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 679.2349211371027,
+        "y": 166.4938178499921
+      },
+      "data": {
+        "label": "Code Node",
+        "body": "<p>This node contains code that will add a White Gold Trinket to the player's inventory.</p><p><br></p><p><code>Player:addItemToInventory(\"#WhiteGoldTrinket\", 1);</code></p><p><br></p><p><br></p>"
+      },
+      "style": {
+        "width": "400px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "7712bd45-553f-437f-88ba-8e9ec4af6251",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 208.63415079156593,
+        "y": 355.2830634885622
+      },
+      "data": {
+        "label": "Node 4",
+        "body": "<p>You drive by some really beautiful mountains on the way to the coding node.</p>"
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    }
+  ],
+  "edges": [
+    {
+      "id": "5ef9e938-bc8d-4e93-b017-247022fbab2e",
+      "type": "default",
+      "source": "7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee",
+      "target": "1a11f905-3879-402c-9a32-05ac88d094dc",
+      "updatable": true,
+      "data": {},
+      "label": "Dialogue Choice",
+      "sourceX": 71.57187948800504,
+      "sourceY": 163.2909055918944,
+      "targetX": 597.5000569144178,
+      "targetY": 25.00001963125584
+    },
+    {
+      "id": "9e5b2df1-dc66-415b-a265-4624011d2851",
+      "type": "default",
+      "source": "1a11f905-3879-402c-9a32-05ac88d094dc",
+      "target": "ec06743f-ddf2-4c54-9c78-e4abc8a39404",
+      "updatable": true,
+      "data": {},
+      "label": "Wait, nothing happened?",
+      "sourceX": 822.5002199025137,
+      "sourceY": 25.00001963125584,
+      "targetX": 1291.3970689223158,
+      "targetY": 114.74606490372338
+    },
+    {
+      "id": "vueflow__edge-7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee-bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "type": "default",
+      "source": "7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee",
+      "target": "bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "Code Choice",
+      "sourceX": 71.57187948800504,
+      "sourceY": 163.2909055918944,
+      "targetX": 676.7348766504056,
+      "targetY": 316.4938849369697
+    },
+    {
+      "id": "vueflow__edge-7712bd45-553f-437f-88ba-8e9ec4af6251-bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "type": "default",
+      "source": "7712bd45-553f-437f-88ba-8e9ec4af6251",
+      "target": "bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "",
+      "sourceX": 511.13432395222173,
+      "sourceY": 505.2830798749824,
+      "targetX": 676.7348766504056,
+      "targetY": 316.4938849369697
+    },
+    {
+      "id": "vueflow__edge-bcd87f9c-68a2-4765-b4e8-36cd1a543bab-ec06743f-ddf2-4c54-9c78-e4abc8a39404",
+      "type": "default",
+      "source": "bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
+      "target": "ec06743f-ddf2-4c54-9c78-e4abc8a39404",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "",
+      "sourceX": 1081.735200647248,
+      "sourceY": 316.4938849369697,
+      "targetX": 1291.3970689223158,
+      "targetY": 114.74606490372338
+    },
+    {
+      "id": "vueflow__edge-7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee-7712bd45-553f-437f-88ba-8e9ec4af6251",
+      "type": "default",
+      "source": "7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee",
+      "target": "7712bd45-553f-437f-88ba-8e9ec4af6251",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "Scenic Route",
+      "sourceX": 71.57187948800504,
+      "sourceY": 163.2909055918944,
+      "targetX": 206.13415700542626,
+      "targetY": 505.2830798749824
+    }
+  ],
+  "position": [
+    278.37527078441263,
+    377.2619362060576
+  ],
+  "zoom": 0.601918381375297,
+  "viewport": {
+    "x": 278.37527078441263,
+    "y": 377.2619362060576,
+    "zoom": 0.601918381375297
+  }
+}
