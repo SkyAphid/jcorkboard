@@ -37,20 +37,20 @@ public abstract class Element {
 	 * <br><br>
 	 * Example: getElement(getNodes(), "ID");
 	 */
-	public static Element getElement(ElementSearch elementSearch, ArrayList<? extends Element> carriers, String IDorLabel){
-		for (int i = 0; i < carriers.size(); i++) {
-			Element e = carriers.get(i);
+	public static Element getElement(ElementSearch elementSearch, ArrayList<? extends Element> elements, String IDorLabel){
+		for (int i = 0; i < elements.size(); i++) {
+			Element e = elements.get(i);
 
 			switch (elementSearch) {
 			case ID: {
-					if (e.getID().equals(IDorLabel)) {
+					if (e.getID().contentEquals(IDorLabel)) {
 						return e;
 					} else {
 						break;
 					}
 				}
 			case LABEL: {
-					if (e.getLabel().equals(IDorLabel)) {
+					if (e.getLabel().contentEquals(IDorLabel)) {
 						return e;
 					} else {
 						break;

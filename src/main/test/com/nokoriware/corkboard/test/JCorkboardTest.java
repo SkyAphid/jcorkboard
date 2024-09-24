@@ -26,7 +26,7 @@ public class JCorkboardTest {
 		}
 		
 		/*
-		 * Select the Arcweave file to test.
+		 * Select the Corkboard file to test.
 		 */
 		
         JFileChooser chooser = new JFileChooser();

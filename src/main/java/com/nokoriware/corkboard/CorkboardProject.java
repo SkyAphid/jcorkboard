@@ -1,5 +1,7 @@
 package com.nokoriware.corkboard;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import com.nokoriware.corkboard.Element.ElementSearch;
@@ -21,6 +23,10 @@ public class CorkboardProject {
 		this.viewportZoom = viewportZoom;
 		this.nodes = nodes;
 		this.connections = connections;
+	}
+	
+	public static CorkboardProject importJSON(File corkboardJSONFile) throws FileNotFoundException {
+		return CorkboardJSONImporter.read(corkboardJSONFile);
 	}
 	
 	public String getName() {

@@ -12,10 +12,11 @@ import com.nokoriware.corkboard.Connection;
 import com.nokoriware.corkboard.CorkboardJSONImporter;
 import com.nokoriware.corkboard.CorkboardProject;
 import com.nokoriware.corkboard.Node;
+import com.nokoriware.corkboard.NodeType;
 import com.nokoriware.corkboard.Node.LabelType;
 
 /**
- * This basic program will allow you to select an Arcweave JSON export, load it, and interact with it via the console.
+ * This basic program will allow you to select an Corkboard JSON export, load it, and interact with it via the console.
  */
 public class JCorkboardHelloWorldExample {
 	
@@ -33,7 +34,7 @@ public class JCorkboardHelloWorldExample {
 		}
 		
 		/*
-		 * Select the Arcweave file to test.
+		 * Select the Corkboard file to test.
 		 */
 		
         JFileChooser chooser = new JFileChooser();
@@ -177,7 +178,7 @@ public class JCorkboardHelloWorldExample {
 				
 				//Warning in case there are unlabelled connection outputs
 				if (currentNode.getTargetConnectionsByLabel(LabelType.UNLABELLED).size() > 1) {
-					System.err.println("Warning: unlabelled connections present in \"" + currentNode.getLabel() + ". The next node will be the first detected target.\"");
+					System.err.println("Warning: There are only unlabelled connections present in \"" + currentNode.getLabel() + "\". The next node will be the first detected target.");
 				}
 				
 
@@ -185,6 +186,10 @@ public class JCorkboardHelloWorldExample {
 
 					//Proceed to next element automatically, if available
 					currentNode = outputs.get(0).getTarget();
+					
+					if (currentNode.getType() == NodeType.TEXT_FIELD) {
+						
+					}
 					
 				} else {
 					

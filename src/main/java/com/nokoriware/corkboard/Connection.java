@@ -9,8 +9,8 @@ public class Connection extends Element {
 	 */
 	public Connection(String ID, String label, Node source, Node target) {
 		super(ID, label);
-		this.source = source.connect(this);
-		this.target = target.connect(this);
+		this.source = source != null ? source.connect(this) : null;
+		this.target = target != null ? target.connect(this) : null;
 	}
 	
 	public void disconnect() {

@@ -17,7 +17,7 @@ import com.nokoriware.corkboard.Element.ElementSearch;
 public class CorkboardJSONImporter {
 	
 	/**
-	 * A utility function that allows you to simply pass in a <code>File</code> containing the location of the Arcweave Project you wish to parse.
+	 * A utility function that allows you to simply pass in a <code>File</code> containing the location of the Corkboard Project you wish to parse.
 	 * 
 	 * @throws Exception - any exceptions encountered during parsing will be reported.
 	 */
@@ -27,7 +27,7 @@ public class CorkboardJSONImporter {
 	}
 	
 	/**
-	 * Read the given input stream containing the JSON data for the given Arcweave Project. All data will be read and recorded onto an object based system that will allow for easier Java integration.
+	 * Read the given input stream containing the JSON data for the given Corkboard Project. All data will be read and recorded onto an object based system that will allow for easier Java integration.
 	 * 
 	 * @throws Exception - any exceptions encountered during parsing will be reported.
 	 */
@@ -237,7 +237,8 @@ public class CorkboardJSONImporter {
 				String targetID = edgeObject.getString("target");
 				String label = edgeObject.getString("label");
 				
-
+				System.err.println("readEdges(): " + ID + "\n" + sourceID + "\n" + targetID);
+				
 				Node source = getNodeByID(nodeContainers, sourceID);
 				Node target = getNodeByID(nodeContainers, targetID);
 				
@@ -257,7 +258,7 @@ public class CorkboardJSONImporter {
 		private boolean isStartingNode;
 		
 		public NodeContainer(Node node, String[] componentIDs, boolean isStartingNode) {
-			super(node.getID(), null);
+			super(node.getID(), node.getLabel());
 			this.node = node;
 			this.componentIDs = componentIDs;
 			this.isStartingNode = isStartingNode;
@@ -266,7 +267,13 @@ public class CorkboardJSONImporter {
 	}
 	
 	private static Node getNodeByID(ArrayList<NodeContainer> nodeContainers, String ID) {
-		return ((NodeContainer) Element.getElement(ElementSearch.ID, nodeContainers, ID)).node;
+		NodeContainer nodeContainer = ((NodeContainer) Element.getElement(ElementSearch.ID, nodeContainers, ID));
+		
+		if (nodeContainer != null && nodeContainer.node != null) {
+			return nodeContainer.node;
+		}
+
+		return null;
 	}
 	
 	private static boolean containsValidKey(JsonObject object, String key) {

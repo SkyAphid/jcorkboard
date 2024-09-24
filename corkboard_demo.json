@@ -1,0 +1,235 @@
+{
+  "nodes": [
+    {
+      "id": "cb5f9830-4b99-48ef-ad2d-4f62c1c7348c",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 186.0159995491863,
+        "y": 39.53012792780913
+      },
+      "data": {
+        "label": "Start",
+        "isStartingNode": true,
+        "body": "<p>Hello #Player! It's <strong>so </strong>nice to see you again. You look <strong><em>so</em></strong> handsome!</p><p><br></p><p>Say... How about a <em>date</em>? Would you like to take me out?</p>",
+        "components": [
+          "5722c1d2-fba5-4f34-978c-66dee7be9919"
+        ]
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "5722c1d2-fba5-4f34-978c-66dee7be9919",
+      "type": "component",
+      "initialized": false,
+      "position": {
+        "x": 91.77765574791431,
+        "y": 490.3679946240303
+      },
+      "data": {
+        "label": "Connelle",
+        "attributes": [
+          "Character",
+          "<Portrait/>content/portraits/conelle/Portrait_Connelle.png",
+          "<Happy/>content/portraits/conelle/Portrait_Connelle_Happy.png",
+          "<Blush/>content/portraits/conelle/Portrait_Connelle_Blush.png",
+          "<Mad/>content/portraits/conelle/Portrait_Connelle.png",
+          "<Sad/>content/portraits/conelle/Portrait_Connelle.png"
+        ]
+      },
+      "class": ""
+    },
+    {
+      "id": "8187ee1d-f127-45bc-81a1-d1e876934912",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 1085.5171134854695,
+        "y": -123.4481658394557
+      },
+      "data": {
+        "label": "",
+        "body": "<p>Awh! I knew you would! You always treat me so nicely. <em>Conelle kisses you on the cheek. </em>Now, where should we go? There's that one place in <strong><em>Brynnard</em></strong> I really like...</p>",
+        "components": [
+          "5722c1d2-fba5-4f34-978c-66dee7be9919"
+        ]
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "1e3d09bb-b108-4f50-b25d-2c0beb1cc1d6",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 1088.5485466184907,
+        "y": 292.8686510954005
+      },
+      "data": {
+        "label": "",
+        "body": "<p>I'm going to just pretend you <strong>didn't say that.</strong> <em>Conelle flashes a mischievous smile at you. </em>Restarting dialogue!!</p>",
+        "components": [
+          "5722c1d2-fba5-4f34-978c-66dee7be9919"
+        ]
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "f2bfd02b-9e75-4fae-aac4-1faca9d9d32e",
+      "type": "text-area",
+      "initialized": false,
+      "position": {
+        "x": 1815.4575897664788,
+        "y": -27.017025411078954
+      },
+      "data": {
+        "label": "",
+        "body": "<p>Oh, you're right! I always get so carried away. Alright, this ends the speech demo! This entire reaction is about to repeat from the start! </p>",
+        "components": [
+          "5722c1d2-fba5-4f34-978c-66dee7be9919"
+        ]
+      },
+      "style": {
+        "width": "300px",
+        "height": "300px"
+      },
+      "class": ""
+    },
+    {
+      "id": "5cec3e91-576f-4c82-9758-afab5e29aabe",
+      "type": "text-field",
+      "initialized": false,
+      "position": {
+        "x": 2328.4209154696414,
+        "y": 367.38593844883013
+      },
+      "data": {
+        "label": "Start"
+      },
+      "style": {
+        "width": "220px",
+        "height": "50px"
+      },
+      "class": ""
+    }
+  ],
+  "edges": [
+    {
+      "id": "3c2d2f41-41f0-4681-91db-f44bde421646",
+      "type": "default",
+      "source": "096d1ad9-185f-4fa7-88d7-38291bcf6006",
+      "target": "3391e44a-1409-4c76-a15e-432ec75dbc8d",
+      "updatable": true,
+      "data": {},
+      "label": "double-click to rename",
+      "sourceX": 302.5,
+      "sourceY": 150,
+      "targetX": 597.5,
+      "targetY": 25
+    },
+    {
+      "id": "8d4e7f36-d61e-4a67-9b52-06da4371e8f4",
+      "type": "default",
+      "source": "3391e44a-1409-4c76-a15e-432ec75dbc8d",
+      "target": "fd8792c2-3f45-4f87-93c7-bca15899db39",
+      "updatable": true,
+      "data": {},
+      "label": "label",
+      "sourceX": 822.5,
+      "sourceY": 25,
+      "targetX": 1097.5,
+      "targetY": 150
+    },
+    {
+      "id": "vueflow__edge-cb5f9830-4b99-48ef-ad2d-4f62c1c7348c-8187ee1d-f127-45bc-81a1-d1e876934912",
+      "type": "default",
+      "source": "cb5f9830-4b99-48ef-ad2d-4f62c1c7348c",
+      "target": "8187ee1d-f127-45bc-81a1-d1e876934912",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "Yes! I'd love to take you out on a date, Conelle.",
+      "sourceX": 488.51599921367614,
+      "sourceY": 189.53012343789382,
+      "targetX": 1083.0171311096205,
+      "targetY": 26.55182967062899
+    },
+    {
+      "id": "vueflow__edge-cb5f9830-4b99-48ef-ad2d-4f62c1c7348c-1e3d09bb-b108-4f50-b25d-2c0beb1cc1d6",
+      "type": "default",
+      "source": "cb5f9830-4b99-48ef-ad2d-4f62c1c7348c",
+      "target": "1e3d09bb-b108-4f50-b25d-2c0beb1cc1d6",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "No thank you! I just don't have the time.",
+      "sourceX": 488.51599921367614,
+      "sourceY": 189.53012343789382,
+      "targetX": 1086.048502567981,
+      "targetY": 442.86867744281557
+    },
+    {
+      "id": "vueflow__edge-8187ee1d-f127-45bc-81a1-d1e876934912-f2bfd02b-9e75-4fae-aac4-1faca9d9d32e",
+      "type": "default",
+      "source": "8187ee1d-f127-45bc-81a1-d1e876934912",
+      "target": "f2bfd02b-9e75-4fae-aac4-1faca9d9d32e",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "We need to close out the demo first!",
+      "sourceX": 1388.0171131499594,
+      "sourceY": 26.55182967062899,
+      "targetX": 1812.9576690652907,
+      "targetY": 122.98300093633614
+    },
+    {
+      "id": "vueflow__edge-1e3d09bb-b108-4f50-b25d-2c0beb1cc1d6-5cec3e91-576f-4c82-9758-afab5e29aabe",
+      "type": "default",
+      "source": "1e3d09bb-b108-4f50-b25d-2c0beb1cc1d6",
+      "target": "5cec3e91-576f-4c82-9758-afab5e29aabe",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "",
+      "sourceX": 1391.0484846083198,
+      "sourceY": 442.86867744281557,
+      "targetX": 2325.9209171019234,
+      "targetY": 392.3859302874208
+    },
+    {
+      "id": "vueflow__edge-f2bfd02b-9e75-4fae-aac4-1faca9d9d32e-5cec3e91-576f-4c82-9758-afab5e29aabe",
+      "type": "default",
+      "source": "f2bfd02b-9e75-4fae-aac4-1faca9d9d32e",
+      "target": "5cec3e91-576f-4c82-9758-afab5e29aabe",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "data": {},
+      "label": "",
+      "sourceX": 2117.9576511056293,
+      "sourceY": 122.98300093633614,
+      "targetX": 2325.9209171019234,
+      "targetY": 392.3859302874208
+    }
+  ],
+  "position": [
+    56.24242920724555,
+    332.95018848489605
+  ],
+  "zoom": 0.8615237662477756,
+  "viewport": {
+    "x": 56.24242920724555,
+    "y": 332.95018848489605,
+    "zoom": 0.8615237662477756
+  }
+}
