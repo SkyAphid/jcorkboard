@@ -1,4 +1,4 @@
-![logo](https://github.com/user-attachments/assets/b5ec9219-dbb1-4d2b-92c5-4116757ce8aa)
+![logo](https://github.com/user-attachments/assets/b7710364-a9d5-48df-b3ea-e0afe78a59d6)
 
 **JCorkboard** is a lightweight Java-based JSON Importer for [Corkboard-based projects!](https://github.com/SkyAphid/corkboard)
 
