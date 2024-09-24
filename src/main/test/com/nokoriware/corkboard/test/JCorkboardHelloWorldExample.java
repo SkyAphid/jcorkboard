@@ -12,7 +12,6 @@ import com.nokoriware.corkboard.Connection;
 import com.nokoriware.corkboard.CorkboardJSONImporter;
 import com.nokoriware.corkboard.CorkboardProject;
 import com.nokoriware.corkboard.Node;
-import com.nokoriware.corkboard.NodeType;
 import com.nokoriware.corkboard.Node.LabelType;
 
 /**
@@ -101,34 +100,11 @@ public class JCorkboardHelloWorldExample {
 		
 		playDialogue(scanner, currentNode);
 		
-		
-		/*
-		 * Choose to replay from a different spot if desired
-		 */
-		
-		boolean terminateProgram = false;
-		
-		while(!terminateProgram) {
-			System.out.println("To start again, input the label of the node you'd like to resume from below.\nOtherwise, type q to end the program.");
-			System.out.println();
-			
-			String response = scanner.nextLine();
-			
-			Node startingNode = project.getNodeByLabel(response);
-			System.out.println();
-			
-			if (startingNode != null) {
-				playDialogue(scanner, startingNode);
-			} else {
-				terminateProgram = true;
-			}
-		}
-		
 		/*
 		 * Close Program
 		 */
 		
-		System.out.println("\nTerminating program.");
+		System.out.println("Terminating program.");
 		scanner.close();
 		System.exit(0);
 	}
@@ -138,7 +114,7 @@ public class JCorkboardHelloWorldExample {
 		while (currentNode != null) {
 			
 			//Print dialogue
-			if (currentNode.hasBody()) {
+			if (currentNode.hasBody() && !currentNode.getBody().isBlank()) {
 				System.out.println("\"" + currentNode.getBody() + "\"");
 			}
 			
@@ -161,8 +137,6 @@ public class JCorkboardHelloWorldExample {
 					
 					System.out.println("\n>" + selected.getLabel() + ".");
 					
-					//System.out.println(selected.getID() + " " + selected.getSourceElement().getID() + " " + (selected.getTargetElement() != null ? selected.getTargetElement().getID() : "No target"));
-
 					//Proceed to next element
 					currentNode = selected.getTarget();
 					
@@ -186,11 +160,7 @@ public class JCorkboardHelloWorldExample {
 
 					//Proceed to next element automatically, if available
 					currentNode = outputs.get(0).getTarget();
-					
-					if (currentNode.getType() == NodeType.TEXT_FIELD) {
-						
-					}
-					
+
 				} else {
 					
 					//If there is no element, end the dialogue exchange.

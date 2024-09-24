@@ -27,11 +27,11 @@
       "type": "text-field",
       "initialized": false,
       "position": {
-        "x": 600,
-        "y": 0
+        "x": 290.988004760684,
+        "y": 4.984064439343808
       },
       "data": {
-        "label": "Jumper"
+        "label": "Whoosh! Text field!"
       },
       "style": {
         "width": "220px",
@@ -44,15 +44,15 @@
       "type": "text-area",
       "initialized": false,
       "position": {
-        "x": 1293.8970120078982,
-        "y": -35.25400218325422
+        "x": 1049.677854480052,
+        "y": -116.66038802586974
       },
       "data": {
         "label": "Node 3",
-        "body": "<p>This is the end!</p>"
+        "body": "<p>And that's it! This is the end! Try another response!</p>"
       },
       "style": {
-        "width": "300px",
+        "width": "304px",
         "height": "300px"
       },
       "class": ""
@@ -62,16 +62,16 @@
       "type": "note",
       "initialized": false,
       "position": {
-        "x": 726.1387900355871,
-        "y": 561.9181494661922
+        "x": 569.3217648708064,
+        "y": 385.6326491618078
       },
       "data": {
         "label": "Welcome to Corkboard!",
         "body": "<p><strong><em>Getting Started:</em></strong></p><ol><li>Right click the background to bring up the context menu</li><li>Double click nodes to delete and modify them</li><li>Drag attribute nodes over text area nodes to combine them</li><li>Save &amp; load projects using the toolbar in the upper-left</li></ol>"
       },
       "style": {
-        "width": "431px",
-        "height": "250px"
+        "width": "784px",
+        "height": "269px"
       },
       "class": ""
     },
@@ -80,8 +80,8 @@
       "type": "component",
       "initialized": false,
       "position": {
-        "x": -34.096991012747424,
-        "y": 731.27091426743
+        "x": -314.86993697223653,
+        "y": 364.88110586289486
       },
       "data": {
         "label": "Conelle",
@@ -97,15 +97,15 @@
       "type": "text-area",
       "initialized": false,
       "position": {
-        "x": 679.2349211371027,
-        "y": 166.4938178499921
+        "x": 572.9082130977682,
+        "y": 66.81252906311596
       },
       "data": {
         "label": "Code Node",
         "body": "<p>This node contains code that will add a White Gold Trinket to the player's inventory.</p><p><br></p><p><code>Player:addItemToInventory(\"#WhiteGoldTrinket\", 1);</code></p><p><br></p><p><br></p>"
       },
       "style": {
-        "width": "400px",
+        "width": "413px",
         "height": "300px"
       },
       "class": ""
@@ -138,10 +138,10 @@
       "updatable": true,
       "data": {},
       "label": "Dialogue Choice",
-      "sourceX": 71.57187948800504,
+      "sourceX": 71.57185413772635,
       "sourceY": 163.2909055918944,
-      "targetX": 597.5000569144178,
-      "targetY": 25.00001963125584
+      "targetX": 288.4879602739869,
+      "targetY": 29.984084070599643
     },
     {
       "id": "9e5b2df1-dc66-415b-a265-4624011d2851",
@@ -150,11 +150,11 @@
       "target": "ec06743f-ddf2-4c54-9c78-e4abc8a39404",
       "updatable": true,
       "data": {},
-      "label": "Wait, nothing happened?",
-      "sourceX": 822.5002199025137,
-      "sourceY": 25.00001963125584,
-      "targetX": 1291.3970689223158,
-      "targetY": 114.74606490372338
+      "label": "What?! Nothing happened?!",
+      "sourceX": 513.4882246631978,
+      "sourceY": 29.984084070599643,
+      "targetX": 1047.177809993355,
+      "targetY": 33.33967906110786
     },
     {
       "id": "vueflow__edge-7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee-bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
@@ -165,10 +165,10 @@
       "targetHandle": null,
       "data": {},
       "label": "Code Choice",
-      "sourceX": 71.57187948800504,
+      "sourceX": 71.57185413772635,
       "sourceY": 163.2909055918944,
-      "targetX": 676.7348766504056,
-      "targetY": 316.4938849369697
+      "targetX": 570.4080672099562,
+      "targetY": 216.81254544953612
     },
     {
       "id": "vueflow__edge-7712bd45-553f-437f-88ba-8e9ec4af6251-bcd87f9c-68a2-4765-b4e8-36cd1a543bab",
@@ -179,10 +179,10 @@
       "targetHandle": null,
       "data": {},
       "label": "",
-      "sourceX": 511.13432395222173,
+      "sourceX": 511.13437465277923,
       "sourceY": 505.2830798749824,
-      "targetX": 676.7348766504056,
-      "targetY": 316.4938849369697
+      "targetX": 570.4080672099562,
+      "targetY": 216.81254544953612
     },
     {
       "id": "vueflow__edge-bcd87f9c-68a2-4765-b4e8-36cd1a543bab-ec06743f-ddf2-4c54-9c78-e4abc8a39404",
@@ -193,10 +193,10 @@
       "targetHandle": null,
       "data": {},
       "label": "",
-      "sourceX": 1081.735200647248,
-      "sourceY": 316.4938849369697,
-      "targetX": 1291.3970689223158,
-      "targetY": 114.74606490372338
+      "sourceX": 988.4083183342789,
+      "sourceY": 216.81254544953612,
+      "targetX": 1047.177809993355,
+      "targetY": 33.33967906110786
     },
     {
       "id": "vueflow__edge-7c38e0aa-d9ff-4706-87d7-5e5c6adfe4ee-7712bd45-553f-437f-88ba-8e9ec4af6251",
@@ -207,20 +207,20 @@
       "targetHandle": null,
       "data": {},
       "label": "Scenic Route",
-      "sourceX": 71.57187948800504,
+      "sourceX": 71.57185413772635,
       "sourceY": 163.2909055918944,
-      "targetX": 206.13415700542626,
+      "targetX": 206.13420770598367,
       "targetY": 505.2830798749824
     }
   ],
   "position": [
-    278.37527078441263,
-    377.2619362060576
+    451.5615800533802,
+    315.47554027999206
   ],
-  "zoom": 0.601918381375297,
+  "zoom": 1.0480007719291116,
   "viewport": {
-    "x": 278.37527078441263,
-    "y": 377.2619362060576,
-    "zoom": 0.601918381375297
+    "x": 451.5615800533802,
+    "y": 315.47554027999206,
+    "zoom": 1.0480007719291116
   }
 }
