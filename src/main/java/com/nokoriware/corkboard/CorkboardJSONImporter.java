@@ -65,12 +65,13 @@ public class CorkboardJSONImporter {
 			
 			//Connect components
 			for (String componentID : nodeContainer.componentIDs) {
-				node.getComponents().add(project.getNodeByID(componentID));
-			}
-			
-			//Set starting node
-			if (nodeContainer.isStartingNode) {
-				project.setStartingNode(node);
+				NodeContainer componentNodeContainer = ((NodeContainer) Element.getElement(ElementSearch.ID, nodeContainers, componentID));
+				
+				if (componentNodeContainer != null) {
+					node.getComponents().add(componentNodeContainer.node);
+				} else {
+					System.err.println("Corkboard Import Warning: Component Node with ID not found: " + componentID);
+				}
 			}
 			
 			//Link jumper nodes if applicable
@@ -85,6 +86,11 @@ public class CorkboardJSONImporter {
 					node.setJumperTarget(node2);
 					break;
 				}
+			}
+			
+			//Set starting node
+			if (nodeContainer.isStartingNode) {
+				project.setStartingNode(node);
 			}
 		}
 

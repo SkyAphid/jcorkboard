@@ -121,7 +121,7 @@ public class Node extends Element {
 		
 		for (String a : attributes) {
 			if (a.startsWith(prefix)) {
-				strings.add(a.substring(0, prefix.length()));
+				strings.add(a.substring(prefix.length()));
 			}
 		}
 		
