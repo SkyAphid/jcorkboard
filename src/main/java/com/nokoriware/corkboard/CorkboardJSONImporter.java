@@ -72,6 +72,20 @@ public class CorkboardJSONImporter {
 			if (nodeContainer.isStartingNode) {
 				project.setStartingNode(node);
 			}
+			
+			//Link jumper nodes if applicable
+			for (NodeContainer nodeContainer2 : nodeContainers) {
+				Node node2 = nodeContainer2.node;
+				
+				if (node.getType()!= NodeType.JUMPER || nodeContainer == nodeContainer2) {
+					continue;
+				}
+				
+				if (node.getLabel().contentEquals(node2.getLabel())) {
+					node.setJumperTarget(node2);
+					break;
+				}
+			}
 		}
 
 		/*
@@ -236,8 +250,6 @@ public class CorkboardJSONImporter {
 				String sourceID = edgeObject.getString("source");
 				String targetID = edgeObject.getString("target");
 				String label = edgeObject.getString("label");
-				
-				System.err.println("readEdges(): " + ID + "\n" + sourceID + "\n" + targetID);
 				
 				Node source = getNodeByID(nodeContainers, sourceID);
 				Node target = getNodeByID(nodeContainers, targetID);

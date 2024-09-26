@@ -13,6 +13,7 @@ import com.nokoriware.corkboard.CorkboardJSONImporter;
 import com.nokoriware.corkboard.CorkboardProject;
 import com.nokoriware.corkboard.Node;
 import com.nokoriware.corkboard.Node.LabelType;
+import com.nokoriware.corkboard.NodeType;
 
 /**
  * This basic program will allow you to select an Corkboard JSON export, load it, and interact with it via the console.
@@ -156,6 +157,7 @@ public class JCorkboardHelloWorldExample {
 				}
 				
 
+				
 				if (outputs.size() > 0) {
 
 					//Proceed to next element automatically, if available
@@ -163,8 +165,19 @@ public class JCorkboardHelloWorldExample {
 
 				} else {
 					
-					//If there is no element, end the dialogue exchange.
-					currentNode = null;
+					//If there's no output connections, see if it's a jumper
+					Node targetNode = currentNode.getJumperTarget();
+					
+					if (targetNode != null) {
+						currentNode = targetNode;
+						return;
+					} else {
+						
+						//If there are no connections or jumpers, end the dialogue exchange.
+						currentNode = null;
+					}
+					
+
 				}
 
 			}

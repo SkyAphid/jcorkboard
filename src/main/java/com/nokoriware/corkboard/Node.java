@@ -15,8 +15,10 @@ public class Node extends Element {
 	
 	private Content body;
 	private ArrayList<String> attributes;
-
 	private ArrayList<Node> components;
+	
+	private Node jumperTarget;
+	
 	private ArrayList<Connection> connections;
 
 	public enum LabelType {
@@ -199,6 +201,26 @@ public class Node extends Element {
 		}
 		
 		return valid;
+	}
+	
+	/*
+	 * 
+	 * 
+	 * Jumpers
+	 * 
+	 * 
+	 */
+	
+	public boolean hasJumperTarget() {
+		return (jumperTarget != null);
+	}
+	
+	public Node getJumperTarget() {
+		return jumperTarget;
+	}
+	
+	void setJumperTarget(Node jumperTarget){
+		this.jumperTarget = jumperTarget;
 	}
 	
 	/*
