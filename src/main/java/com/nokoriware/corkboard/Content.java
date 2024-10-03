@@ -8,7 +8,7 @@ public class Content {
 	
 	private Document document;
 	
-	public Content(Document document) {
+	private Content(Document document) {
 		this.document = document;
 		document.outputSettings().prettyPrint(false);
 	}
@@ -32,9 +32,9 @@ public class Content {
 	}
 	
 	/**
-	 * Processes the text of each paragraph in the document into an array, with their html tags intact so that string modifiers like italics, bold, and so on can still be processed.
+	 * Processes the text of each paragraph in the document into an index of an array, with their html tags intact so that string modifiers like italics, bold, and so on can still be processed.
 	 * 
-	 * @return the processed paragraphs array
+	 * @return the processed paragraphs array; each index containing a separate paragraph
 	 */
 	public String[] getParagraphHTML() {
 
@@ -42,7 +42,6 @@ public class Content {
 	    String[] processed = new String[paragraphs.size()];
 	    
 	    for (int i = 0; i < paragraphs.size(); i++) {
-	    	//System.err.println(i + " " + paragraphs.get(i).html());
 	    	processed[i] = paragraphs.get(i).html();
 	    }
 	    
