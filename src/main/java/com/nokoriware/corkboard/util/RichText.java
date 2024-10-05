@@ -273,8 +273,6 @@ public class RichText {
 			this.isItalic = isItalic;
 			this.isUnderlined = isUnderlined;
 			this.isCustomTag = isCustomTag;
-			
-			System.err.println(hashCode() + " Style created at " + startIndex + " " + isCustomTag[1] + " " + isCustomTag("happy"));
 		}
 		
 		public int getStartIndex() {
