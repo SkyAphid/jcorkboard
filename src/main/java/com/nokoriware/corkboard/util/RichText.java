@@ -9,13 +9,18 @@ import org.jsoup.select.Elements;
 import org.jsoup.select.NodeVisitor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * This utility class allows you to parse html and convert it to a RichText object.
  * RichText objects in turn store the parsed plain text, and is able to tell you how to format it at each character index.
+ * 
+ * Note: Be careful with mixing tags as it can lead to JSoup getting confused. E.G. don't underline another tag.
  */
 public class RichText {
+	
+	private Element body;
 	
 	private String plainText;
 	private List<CharacterStyle> characterStyles;
@@ -38,24 +43,25 @@ public class RichText {
 	}
 	
 	private void parse(Element body, boolean extractCodeBlocks, CustomTag...customTags){
+		this.body = body;
 		
 		//Extract code blocks into this list to be run separately, and also remove them from the body
 		if (extractCodeBlocks) {
 			codeBlocks = extractCodeBlocks(body);
 		}
 		
-		System.err.println(customTags.length);
-		Thread.dumpStack();
+		//System.err.println(customTags.length);
+		//Thread.dumpStack();
 		
 		//Some tags are designed to be replaced with text only available at runtime. Names, data, etc
 		for (CustomTag tag : customTags) {
-			System.err.println(tag + " " + tag.name());
+			//System.err.println(tag + " " + tag.name());
+			
 			if (tag.isReplacer()) {
 				Elements elements = body.select(tag.name());
 				
 				for (Element element : elements) {
 					element.replaceWith(new TextNode(tag.replacement()));
-					System.out.println("Replaced Custom Tag " + tag.name());
 				}
 			}
 		}
@@ -72,15 +78,14 @@ public class RichText {
 			boolean isItalic = false;
 			boolean isUnderline = false;
 			boolean isCustomTag[] = new boolean[customTags.length];
-
+			
 			@Override
 			public void head(Node node, int depth) {
 				if (node instanceof Element) {
 					
+
 					Element element = (Element) node;
 					String tagName = element.tagName();
-					
-					System.err.println(tagName);
 
 					switch (tagName) {
 					case "strong":
@@ -109,6 +114,7 @@ public class RichText {
 						
 						break;
 					}
+
 					
 				} else if (node instanceof TextNode) {
 					
@@ -126,10 +132,10 @@ public class RichText {
 							}
 
 						}
-						
+
 						//Create a new style here
 						plainText.append(text);
-						characterStyles.add(new CharacterStyle(currentIndex, isBold, isItalic, isUnderline, isCustomTag));
+						characterStyles.add(new CharacterStyle(currentIndex, isBold, isItalic, isUnderline, Arrays.copyOf(isCustomTag, isCustomTag.length)));
 						currentIndex += text.length();
 					}
 					
@@ -142,7 +148,7 @@ public class RichText {
 				if (node instanceof Element) {
 					Element element = (Element) node;
 					String tagName = element.tagName();
-					
+
 					switch (tagName) {
 					case "strong":
 					case "b":
@@ -170,7 +176,7 @@ public class RichText {
 						
 						break;
 					}
-					
+
 					// Update the end index of the most recent style if it matches the tag
 					if (!characterStyles.isEmpty()) {
 						CharacterStyle lastStyle = characterStyles.getLast();
@@ -179,29 +185,61 @@ public class RichText {
 							lastStyle.endIndex = currentIndex;
 						}
 					}
+
 				}
 			}
 		});
 
 		this.plainText = plainText.toString();
 		this.characterStyles = characterStyles;
-		
+
+	}
+	
+	public Element getBody() {
+		return body;
 	}
 	
 	public String getPlainText() {
 		return plainText;
 	}
 	
-	public List<CharacterStyle> getCharacterStyles() {
-		return characterStyles;
+	/**
+	 * @return true if there's no plain text in this RichText object; not accounting for HTML code that may still be present
+	 */
+	public boolean isBlank() {
+		return plainText.isBlank();
 	}
+	
+	/*
+	 * Custom Tags
+	 */
 	
 	public CustomTag[] getCustomTags() {
 		return customTags;
 	}
 	
+	public boolean containsTag(String tag) {
+		return !body.select(tag).isEmpty();
+	}
+	
+	/*
+	 * Code Blocks
+	 */
+	
 	public List<String> getCodeBlocks() {
 		return codeBlocks;
+	}
+	
+	public boolean containsCodeBlocks() {
+		return codeBlocks != null && !codeBlocks.isEmpty();
+	}
+	
+	/*
+	 * Character Style
+	 */
+	
+	public List<CharacterStyle> getCharacterStyles() {
+		return characterStyles;
 	}
 	
 	/**
@@ -210,6 +248,7 @@ public class RichText {
 	 */
 	public CharacterStyle getCharacterStyleAt(int charIndex) {
 	    for (CharacterStyle style : characterStyles) {
+	    	
 	        if (charIndex >= style.startIndex && charIndex < style.endIndex) {
 	            return style;
 	        }
@@ -217,6 +256,7 @@ public class RichText {
 	    
 	    return null;
 	}
+	
 
 	public class CharacterStyle {
 		int startIndex;
@@ -233,6 +273,8 @@ public class RichText {
 			this.isItalic = isItalic;
 			this.isUnderlined = isUnderlined;
 			this.isCustomTag = isCustomTag;
+			
+			System.err.println(hashCode() + " Style created at " + startIndex + " " + isCustomTag[1] + " " + isCustomTag("happy"));
 		}
 		
 		public int getStartIndex() {
@@ -254,10 +296,10 @@ public class RichText {
 		public boolean isUnderlined() {
 			return isUnderlined;
 		}
-		
+
 		public boolean isCustomTag(String tag) {
 			for (int i = 0; i < isCustomTag.length; i++) {
-				if (isCustomTag[i] && customTags[i].name().equals(tag)) {
+				if (isCustomTag[i] && customTags[i].name().equalsIgnoreCase(tag)) {
 					return true;
 				}
 			}
@@ -266,14 +308,23 @@ public class RichText {
 
 		@Override
 		public String toString() {
-			return "Character Style from " + startIndex + " to " + endIndex + ": [Bold = " + isBold + ", Italic = " + isItalic + ", Underlined = " + isUnderlined + "]";
+			return "[" + hashCode() + "] Character Style from " + startIndex + " to " + endIndex + ": [Bold = " + isBold + ", Italic = " + isItalic + ", Underlined = " + isUnderlined + "]";
 		}
 	}
 	
 	public interface CustomTag {
 		public String name();
 		
+		/**
+		 * This function is triggered when this Custom Tag is activated during parsing.
+		 * @param charIndex - the character index of the start point
+		 */
 		public void onStart(int charIndex);
+		
+		/**
+		 * This function is triggered when this Custom Tag is deactivated during parsing.
+		 * @param charIndex - the character index of the end point
+		 */
 		public void onEnd(int charIndex);
 		
 		public boolean isReplacer();
@@ -288,6 +339,7 @@ public class RichText {
 
         // Iterate through each code element
         for (Element codeElement : codeElements) {
+        	
             // Extract text from the code block
             codeBlocks.add(codeElement.text());
 
